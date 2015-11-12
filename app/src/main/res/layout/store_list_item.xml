@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="3"
+    android:layout_margin="5dp"
+    android:background="#FFFFFF"
+    android:paddingBottom="5dp"
+   >
+
+    <ImageView
+        android:id="@+id/storeImage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:src="@drawable/ic_store_cart"
+        android:padding="20dp" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2.3">
+
+        <TextView
+            android:id="@+id/storeName"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center|left"
+            android:textStyle="bold"
+            android:text="Store name"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/storeaddress"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="10dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#000000"
+            android:gravity="center|left"
+            android:text="Store name"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

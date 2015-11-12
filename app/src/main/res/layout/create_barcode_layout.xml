@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/header"
+        android:visibility="invisible"
+        android:scaleType="fitXY"/>
+
+
+    <ImageView
+        android:id="@+id/textLogo"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/header_logo"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/linearLayout" />
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:padding="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/linearLayout" />
+
+
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_keyboard_arrow"
+        android:background="@drawable/custom_back_button"
+        android:scaleType="centerInside"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+<LinearLayout
+    android:layout_below="@+id/header"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:id="@+id/linearLayout"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="@drawable/barcode_background"
+        android:orientation="vertical">
+
+
+
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Large Text"
+        android:textSize="26sp"
+        android:textColor="#D5D5D5"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/memberIdBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#D5D5D5"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Member Id: 000000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"/>
+
+
+    <ImageView
+        android:id="@+id/generatedBarcode"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher"/>
+
+</LinearLayout>
+
+
+
+</RelativeLayout>

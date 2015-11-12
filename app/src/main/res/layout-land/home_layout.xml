@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/header">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg3"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent">
+
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_below="@+id/layout2"
+                android:layout_margin="0dp"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal"
+                android:padding="0dp"
+                android:weightSum="3">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="USERNAME"
+                        android:textColor="#000000"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+
+
+                        />
+
+                    <TextView
+                        android:id="@+id/position"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/username"
+                        android:gravity="center"
+                        android:text="Position"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+
+                    <Button
+                        android:id="@+id/bManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/custom_border"
+                        android:drawablePadding="-10dp"
+                        android:drawableTop="@drawable/business_manager"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="Business&#10;manger"
+                        android:textSize="14sp" />
+
+
+                    <Button
+                        android:id="@+id/scanCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/custom_border"
+                        android:drawablePadding="0dp"
+                        android:drawableTop="@drawable/scan"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="Scan&#10;CARD"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/myDcard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_border"
+                    android:drawablePadding="-10dp"
+                    android:drawableTop="@drawable/mycard"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:text="My&#10;D-CARD"
+                    android:textSize="14sp" />
+
+
+                <Button
+                    android:id="@+id/discounts"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_border"
+                    android:drawablePadding="-10dp"
+                    android:drawableTop="@drawable/discount"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:text="Discounts&#10;near me"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/preferences"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_border"
+                    android:drawablePadding="-12dp"
+                    android:drawableTop="@drawable/prefences"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:text="Preferences"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_below="@+id/layout1"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/merchantId"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2.5"
+                    android:background="@drawable/edit_textfield"
+                    android:gravity="center"
+                    android:hint="Enter merchant invite code"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColorHint="#666666" />
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/custom_button"
+                    android:gravity="center"
+                    android:text="GO"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+
+

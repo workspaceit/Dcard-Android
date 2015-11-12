@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <ImageView
+
+            android:id="@+id/profileImg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg3" />
+
+        <ImageView
+            android:id="@+id/textLogo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/header_logo"
+            android:padding="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="55dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/imageView2" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:padding="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/imageView2" />
+
+
+
+        <ImageButton
+            android:id="@+id/edit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_edit_white_24dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/custom_save_button"
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/layout1"
+            android:layout_alignStart="@+id/layout1" />
+
+
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_back_button"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_keyboard_arrow" />
+
+
+
+
+        <ImageView
+            android:id="@+id/storeImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/back"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_round_button_small"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileImg"
+            android:layout_margin="15dp"
+            android:background="#EEE"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+
+            <TextView
+                android:id="@+id/storeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Store Title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#666666"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/storeaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#666666"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/storeCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Category: none"
+
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:hint="Enter Category name"
+
+                android:background="@drawable/edit_textfield"/>
+
+
+            <Button
+                android:id="@+id/manageEmployee"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:text="Manage Employee"
+                android:gravity="center"
+                android:drawableRight="@drawable/employee"
+                android:padding="5dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout1"
+            android:layout_margin="15dp"
+            android:background="#EEE"
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:visibility="gone"
+           >
+
+
+            <TextView
+                android:id="@+id/addDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Add Discount"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+            <CheckBox
+                android:id="@+id/checkbox1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.2"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-light"
+                android:text="Spend"
+                android:gravity="center"
+                android:layout_weight="0.8"/>
+             <EditText
+                 android:id="@+id/spend"
+                 android:layout_width="0dp"
+                 android:layout_height="40dp"
+                 android:layout_weight="1"
+                 android:textColor="#000000"
+                 android:fontFamily="sans-serif-light"
+                 android:layout_gravity="center"
+                 android:singleLine="true"
+                 android:imeOptions="actionNext"
+                 android:inputType="numberDecimal"
+                 android:gravity="center"
+                 android:background="@drawable/edit_textfield"
+                 android:drawableLeft="@drawable/edittext_image"
+                 />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <CheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.2"
+                    android:visibility="invisible"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:text="Get"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:layout_weight="0.8"/>
+
+
+                <EditText
+                    android:id="@+id/get"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-light"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/edit_textfield"
+                    android:drawableLeft="@drawable/edittext_image"
+                    android:layout_weight="0.70" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:text="off"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_weight="0.30"
+                    android:gravity="left"
+                    android:padding="5dp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <CheckBox
+                    android:id="@+id/checkbox2"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.2"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:textSize="16sp"
+                    android:text="Discount on every transaction"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:layout_weight="0.8"/>
+                <EditText
+                    android:id="@+id/discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.8"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-light"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:gravity="center"
+                    android:background="@drawable/edit_textfield"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:textSize="16sp"
+                    android:text="%"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_weight="0.2"/>
+
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:text="Save"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"/>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

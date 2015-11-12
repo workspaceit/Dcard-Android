@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:animateLayoutChanges="true">
+
+
+
+
+    <RelativeLayout
+
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+
+
+        <ImageView
+
+            android:id="@+id/profileImg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg3" />
+
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileImg"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_email_black_24dp"
+                android:background="@drawable/custom_round_button_small"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Enable email notification"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="#666666"
+                android:padding="5dp"/>
+            <Switch
+                android:id="@+id/enableEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout1"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_confirmation_number_black_24dp"
+                android:background="@drawable/custom_round_button_small"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Find near my zipcode"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="#666666"
+                android:padding="5dp"/>
+            <Switch
+                android:id="@+id/zipcode"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout2"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/zipNumber"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/edit_textfield"
+                android:layout_gravity="center"
+                android:hint="Enter zip code"
+
+                android:textColor="#000000"
+                android:textColorHint="#666666"
+                android:gravity="center"
+                android:visibility="gone"
+                android:inputType="number"
+                android:padding="5dp"
+                android:layout_margin="20dp"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout3"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_location_on_black_24dp"
+                android:background="@drawable/custom_round_button_small"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Find near my current location"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="#666666"/>
+            <Switch
+                android:id="@+id/currentLocation"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout4"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+          </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout5"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_attach_money"
+                android:background="@drawable/custom_round_button_small"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Your total savings so far:"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="#666666"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+         android:layout_below="@+id/layout6"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/savings"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="$000"
+                android:paddingLeft="25dp"
+                android:textSize="18sp"
+                android:textColor="#00BCD4"
+                />
+
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/textLogo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/header_logo"
+            android:padding="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="55dp"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/userImg" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:padding="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/userImg" />
+
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_keyboard_arrow"
+            android:background="@drawable/custom_back_button"
+            android:scaleType="centerInside"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_save"
+            android:scaleType="centerInside"
+            android:background="@drawable/custom_save_button"
+            android:layout_margin="10dp"
+            android:layout_above="@+id/layout1"
+            android:layout_alignStart="@+id/back"
+            android:layout_alignParentStart="true"/>
+
+        <ImageView
+            android:id="@+id/userImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/back"
+            android:layout_centerHorizontal="true" />
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
