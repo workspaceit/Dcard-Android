@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.AsyncTask.LogOutAsyncTask;
 import com.AsyncTask.MerchantAsyncTask;
 import com.AsyncTask.RegisterGCMAsyncTask;
 import com.Utility.ConnectionDetector;
@@ -28,7 +29,7 @@ import com.model.dcard.R;
  */
 public class HomeActivity extends Activity implements View.OnClickListener {
 
-    private Button preferences,bManager,myDcard,discounts,scanCard;
+    private Button preferences,bManager,myDcard,discounts,scanCard,logOut;
     private TextView username,position;
     private Button submit;
     private EditText mCode;
@@ -53,6 +54,9 @@ public class HomeActivity extends Activity implements View.OnClickListener {
 
         this.bManager = (Button) findViewById(R.id.bManager);
         this.scanCard = (Button) findViewById(R.id.scanCard);
+
+        this.logOut = (Button) findViewById(R.id.logout);
+        this.logOut.setOnClickListener(this);
 
         this.mCode = (EditText)findViewById(R.id.merchantId);
         this.submit = (Button)findViewById(R.id.submit);
@@ -188,6 +192,10 @@ public class HomeActivity extends Activity implements View.OnClickListener {
             startActivity(intent);
 
         }
+        else if(v==logOut)
+        {
+           new LogOutAsyncTask(HomeActivity.this).execute();
+        }
 
     }
 
@@ -196,8 +204,13 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     Intent intent = new Intent(this,HomeActivity.class);
     startActivity(intent);
     finish();
+    }
 
-
+    public void logOutUser()
+    {
+        Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

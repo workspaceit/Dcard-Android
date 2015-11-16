@@ -44,7 +44,6 @@ public class LoginAsyncTask extends AsyncTask<String, String, Boolean> {
         super.onPreExecute();
 
 
-
     }
     @Override
     public Boolean doInBackground(String... parms){
@@ -66,9 +65,6 @@ public class LoginAsyncTask extends AsyncTask<String, String, Boolean> {
         this.context.onDataLoad();
         else
             Toast.makeText(context,"Login failed",Toast.LENGTH_LONG).show();
-
-
-
 
     }
 

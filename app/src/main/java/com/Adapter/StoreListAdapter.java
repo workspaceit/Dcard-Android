@@ -73,10 +73,17 @@ public class StoreListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.storeName.setText(DiscountsNearMeActivity.storeList.get(position).store_name);
-        viewHolder.storeAddress.setText(DiscountsNearMeActivity.storeList.get(position).store_city+" - "+DiscountsNearMeActivity.storeList.get(position).store_zip +" , "+DiscountsNearMeActivity.storeList.get(position).store_state+" , "+DiscountsNearMeActivity.storeList.get(position).store_country);
-        if(DiscountsNearMeActivity.storeList.get(position).participator == true)
-           viewHolder.storeImage.setImageResource(R.drawable.logo);
+        try {
+            viewHolder.storeName.setText(DiscountsNearMeActivity.storeList.get(position).store_name);
+            viewHolder.storeAddress.setText(DiscountsNearMeActivity.storeList.get(position).store_city+" - "+DiscountsNearMeActivity.storeList.get(position).store_zip +" , "+DiscountsNearMeActivity.storeList.get(position).store_state+" , "+DiscountsNearMeActivity.storeList.get(position).store_country);
+            if(DiscountsNearMeActivity.storeList.get(position).participator == true)
+                viewHolder.storeImage.setImageResource(R.drawable.logo);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
 //        else
 //            viewHolder.storeImage.setImageResource(R.drawable.ic_logo);
 

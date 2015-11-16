@@ -12,7 +12,24 @@
         android:background="#FFF"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/logout"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="LOG OUT"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:layout_weight="1.17" />
 
 
         <TextView
@@ -20,39 +37,19 @@
             android:layout_marginBottom="5dp"
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
             android:text="USERNAME"
             android:textColor="#000000"
             android:textSize="22sp"
             android:textStyle="bold"
-
-
-            />
-
-        <TextView
-            android:id="@+id/position"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/username"
-            android:gravity="center"
-            android:text="Position"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:visibility="gone" />
-
-
+            android:layout_gravity="center_horizontal" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent">
-
-
-
-
-
 
 
 

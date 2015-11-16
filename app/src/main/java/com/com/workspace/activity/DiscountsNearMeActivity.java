@@ -57,7 +57,7 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
 
     public static ArrayList<Store> storeList;
     private ListView storeListView, categoryListView, distanceListView;
-    private StoreListAdapter adapter;
+    public StoreListAdapter adapter;
     private ConnectionDetector cd;
     private ImageButton back;
     private ArrayList<Category> cArrayList;
@@ -85,12 +85,9 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.storelist_layout);
         initialize();
-
-
     }
 
     private void initialize() {
-
         this.userScrolled = false;
         this.checkClick = false;
         this.storeList = new ArrayList<Store>();
@@ -136,12 +133,9 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
         this.searchButton = (Button) findViewById(R.id.search);
         this.searchButton.setOnClickListener(this);
 
-
         //locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-
         Location location = getLastKnownLocation();
-
 
         if (location != null) {
             System.out.println("Provider " + provider + " has been selected.");
@@ -178,12 +172,14 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
                     new GetStoreListAsyncTask(DiscountsNearMeActivity.this, search).execute();
 
             }
+
+
         });
 
         this.categoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 System.out.println("test 1");
                 confirm.setVisibility(View.VISIBLE);
                 if (Utility.categoryCheckList.get(position) == false) {
@@ -191,10 +187,9 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
                     Utility.categoryCheckList.set(position, true);
                     choosedCategories.add(cArrayList.get(position).id);
 
-                }
-                else {
+                } else {
                     Utility.categoryCheckList.set(position, false);
-                    if(choosedCategories.contains(cArrayList.get(position).id)) {
+                    if (choosedCategories.contains(cArrayList.get(position).id)) {
                         int index = choosedCategories.indexOf(cArrayList.get(position).id);
                         choosedCategories.remove(index);
                     }
@@ -205,8 +200,7 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
 
                 if (choosedCategories.size() > 1)
                     categoryButton.setText("Multiple Category selected");
-                else
-                {
+                else {
                     categoryButton.setText("CATEGORIES");
                 }
 
@@ -216,7 +210,6 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
 
     }
 
-
     public void onDataLoad(ArrayList<Store> storeArrayList) {
 
         this.categoryListView.setVisibility(View.GONE);
@@ -224,14 +217,24 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
         this.storeListView.setVisibility(View.VISIBLE);
         confirm.setVisibility(View.GONE);
 
-        for (int i = 0; i < storeArrayList.size(); i++) {
+       System.out.print("storeArraListSize:"+storeArrayList.size());
 
-            DiscountsNearMeActivity.storeList.add(storeArrayList.get(i));
+            for (int i = 0; i < storeArrayList.size(); i++) {
+                try {
+                    DiscountsNearMeActivity.storeList.add(storeArrayList.get(i));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-        }
-        System.out.println("here: " + DiscountsNearMeActivity.storeList.size());
+            }
+            System.out.println("here: " + DiscountsNearMeActivity.storeList.size());
+            this.adapter.notifyDataSetChanged();
+
+    }
+
+    public void changeAdapterViews()
+    {
         this.adapter.notifyDataSetChanged();
-
     }
 
     private Location getLastKnownLocation() {
@@ -426,12 +429,10 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
 
     private void callSearch()
     {
-
         DiscountsNearMeActivity.storeList.clear();
+
         if (cd.isConnectingToInternet())
             new GetStoreListAsyncTask(DiscountsNearMeActivity.this, search).execute();
-
-
     }
 
 
@@ -487,17 +488,14 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
 
     }
 
-
     public class CategoryTask extends AsyncTask<String, String, Boolean> {
 
         ProgressDialog dialog;
         boolean result;
         Context mycontext;
 
-
         public CategoryTask(Context c) {
             this.mycontext = c;
-
 
         }
 
@@ -535,10 +533,9 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
         @Override
         public void onPostExecute(Boolean result) {
 
-            //dialog.dismiss();
+            dialog.dismiss();
 
             if (result == true) {
-
 
                 onDataLoad();
 

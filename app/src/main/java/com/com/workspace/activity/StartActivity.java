@@ -76,41 +76,27 @@ public class StartActivity extends Activity {
 
         if (session.checkLogin() == true) {
 
-
-
             if(cd.isConnectingToInternet()==true)
-
                 new MyTask(StartActivity.this,session.getAccessToken()).execute();
+
             else
-
                 Toast.makeText(StartActivity.this, "Check your internet connection", Toast.LENGTH_SHORT).show();
-
         }
         else {
-
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
-
-
                     Intent intent = new Intent(StartActivity.this,LoginActivity.class);
                     startActivity(intent);
                     finish();
-
                 }
-
-
             }, DELAY);
-
 
         }
 
-
     }
-
 
     public void onDataLoad()
     {
@@ -118,8 +104,6 @@ public class StartActivity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
-
 
                 Intent intent = new Intent(StartActivity.this,HomeActivity.class);
                 startActivity(intent);
@@ -129,12 +113,6 @@ public class StartActivity extends Activity {
 
 
         }, DELAY);
-
-
-
-
-
-
     }
 
     public class MyTask extends AsyncTask<String, String, Boolean> {

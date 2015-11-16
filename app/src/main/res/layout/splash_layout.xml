@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:src="@drawable/border" />
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="180dp"

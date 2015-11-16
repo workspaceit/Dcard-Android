@@ -27,7 +27,6 @@ public class GetStoreListAsyncTask extends AsyncTask<String, String, Boolean> {
 
     public GetStoreListAsyncTask(DiscountsNearMeActivity context,Search search) {
 
-
         this.context = context;
         this.search = search;
 
@@ -44,14 +43,11 @@ public class GetStoreListAsyncTask extends AsyncTask<String, String, Boolean> {
 
         super.onPreExecute();
 
-
     }
-
 
     @Override
     public Boolean doInBackground(String... parms){
         //result=false;
-
         StoreService service = new StoreService();
         this.storeArrayList = service.getStoreList(search);
 
@@ -63,17 +59,16 @@ public class GetStoreListAsyncTask extends AsyncTask<String, String, Boolean> {
         return result;
     }
 
-
     @Override
     public void  onPostExecute(Boolean result){
 
         dialog.dismiss();
         if(result==true)
-        this.context.onDataLoad(this.storeArrayList);
-        else
-            Toast.makeText(context,"No store found!!",Toast.LENGTH_SHORT).show();
-
-
+            this.context.onDataLoad(this.storeArrayList);
+        else {
+            this.context.changeAdapterViews();
+            Toast.makeText(context, "No store found!!", Toast.LENGTH_LONG).show();
+        }
 
     }
 
