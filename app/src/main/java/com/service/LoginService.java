@@ -50,6 +50,7 @@ public class LoginService extends DcardService {
 
                 this.member = gSonObj.fromJson(jObj.get("member"), member.getClass());
                 this.store = gSonObj.fromJson(jObj.get("store"), store.getClass());
+
                 Utility.store = store;
                 //System.out.println(this.member.member_code);
                 Utility.member = this.member;
@@ -63,6 +64,7 @@ public class LoginService extends DcardService {
             }
         } catch (Exception e) {
             // TODO: handle exception
+            System.out.print(e.getMessage());
         }
         return false;
     }

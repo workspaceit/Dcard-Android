@@ -146,12 +146,12 @@ public class DetailsActivity extends Activity implements View.OnClickListener{
         this.storeTitle.setText(DiscountsNearMeActivity.storeList.get(this.position).store_name);
 
         this.storeCategory = (TextView)findViewById(R.id.storeCategory);
-        if(DiscountsNearMeActivity.storeList.get(this.position).category.name=="")
+        if(DiscountsNearMeActivity.storeList.get(this.position).category[0].name=="")
         {
             this.storeCategory.setVisibility(View.GONE);
         }
         else
-        this.storeCategory.setText("Category: "+DiscountsNearMeActivity.storeList.get(this.position).category.name);
+        this.storeCategory.setText("Category: "+DiscountsNearMeActivity.storeList.get(this.position).category[0].name);
 
         this.spenditure = (TextView)findViewById(R.id.spenditure);
         this.spenditure.setText("For every $"+DiscountsNearMeActivity.storeList.get(this.position).on_spent + " you spend you get $"+DiscountsNearMeActivity.storeList.get(this.position).amount_off + " free");

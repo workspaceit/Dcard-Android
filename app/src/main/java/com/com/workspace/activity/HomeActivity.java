@@ -51,7 +51,8 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     {
         this.preferences = (Button)findViewById(R.id.preferences);
         this.preferences.setOnClickListener(this);
-
+        this.username = (TextView) findViewById(R.id.username);
+        this.position = (TextView) findViewById(R.id.position);
         this.bManager = (Button) findViewById(R.id.bManager);
         this.scanCard = (Button) findViewById(R.id.scanCard);
 
@@ -68,8 +69,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         this.scanCard = (Button)findViewById(R.id.scanCard);
 
 
-        this.username = (TextView) findViewById(R.id.username);
-        this.position = (TextView) findViewById(R.id.position);
+
 
         this.discounts = (Button) findViewById(R.id.discounts);
         this.discounts.setOnClickListener(this);

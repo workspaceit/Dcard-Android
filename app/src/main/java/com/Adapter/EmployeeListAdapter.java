@@ -96,14 +96,14 @@ public class EmployeeListAdapter extends BaseAdapter {
         viewHolder.memberCode.setText(ManageEmployeeActivity.mEmployeeList.get(position).member_code);
 
 
-        if (position % 3 == 0) {
-            convertView.setBackgroundColor(Color.parseColor("#C9A798"));
-        } else if (position % 2 == 0) {
-            convertView.setBackgroundColor(Color.parseColor("#E9E0DB"));
-        } else {
-            convertView.setBackgroundColor(Color.parseColor("#FFCBD3"));
-
-        }
+//        if (position % 3 == 0) {
+//            convertView.setBackgroundColor(Color.parseColor("#C9A798"));
+//        } else if (position % 2 == 0) {
+//            convertView.setBackgroundColor(Color.parseColor("#E9E0DB"));
+//        } else {
+//            convertView.setBackgroundColor(Color.parseColor("#FFCBD3"));
+//
+//        }
         state += 1;
         return convertView;
     }

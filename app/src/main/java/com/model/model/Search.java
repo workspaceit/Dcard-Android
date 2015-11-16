@@ -27,7 +27,7 @@ public class Search {
         this.local_store = 0;
         this.lat = 0.0;
         this.lon = 0.0;
-        this.category_id_list = "6,8";
+        this.category_id_list = "";
 
 
     }

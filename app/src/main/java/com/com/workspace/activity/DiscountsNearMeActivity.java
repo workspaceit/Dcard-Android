@@ -414,12 +414,14 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
             if(localStoreState == 0) {
 
                 search.local_store = 1;
+                enrolled.setText("Show only Dcard Enrolled business");
                 callSearch();
 
             }
             else if(localStoreState == 1)
             {
                 search.local_store = 0;
+                enrolled.setText("Show All Business");
                 callSearch();
             }
 

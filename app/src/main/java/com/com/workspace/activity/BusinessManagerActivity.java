@@ -95,7 +95,7 @@ public class BusinessManagerActivity extends Activity implements View.OnClickLis
         try {
             this.title.setText(Utility.store.store_name);
             this.address.setText(Utility.store.store_state+","+ Utility.store.store_city+","+ Utility.store.store_country);
-            this.category.setText("Category: "+ Utility.store.category.name);
+            this.category.setText("Category: "+ Utility.store.category[0].name);
 
             this.spend.setText(String.valueOf(Utility.store.amount_off));
             this.get.setText(String.valueOf(Utility.store.on_spent));
@@ -227,7 +227,7 @@ public class BusinessManagerActivity extends Activity implements View.OnClickLis
 
         Toast.makeText(this,"Saved successfully!!",Toast.LENGTH_SHORT).show();
         try {
-            this.category.setText("Category: " + Utility.store.category.name);
+            this.category.setText("Category: " + Utility.store.category[0].name);
             this.spend.setText(String.valueOf(Utility.store.amount_off));
             this.get.setText(String.valueOf(Utility.store.on_spent));
             this.discount.setText(String.valueOf(Utility.store.percent_off));

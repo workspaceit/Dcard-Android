@@ -13,7 +13,7 @@ public class Store {
     public String store_city;
     public String store_zip;
     public String store_country;
-    public Category category;
+    public Category[] category;
     public double lat;
     public double lon;
     public String created_date;
@@ -37,7 +37,7 @@ public class Store {
         this.store_zip = "";
         this.store_country = "";
         this.created_date = "";
-        this.category = new Category();
+        this.category = new Category[100];
         this.lat = 0.0f;
         this.lon = 0.0f;
         this.phone = "";
