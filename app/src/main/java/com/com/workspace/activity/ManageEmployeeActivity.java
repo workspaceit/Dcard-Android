@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import com.AsyncTask.GetEmployeeListAsyncTask;
 import com.AsyncTask.GetStoreListAsyncTask;
 import com.Utility.BackgroundContainer;
 import com.Utility.ConnectionDetector;
+import com.Utility.SessionManager;
 import com.Utility.SwipeDetector;
 import com.Utility.Utility;
 import com.journeyapps.barcodescanner.Util;
@@ -48,7 +50,7 @@ public class ManageEmployeeActivity extends Activity implements View.OnClickList
 
     private ListView manageEmployee;
     private EditText employeeIdEditText;
-    private Button add;
+    private Button add,removeSelf;
     public static ArrayList<Member> mEmployeeList;
     private EmployeeListAdapter adapter;
     private ConnectionDetector cd;
@@ -56,7 +58,7 @@ public class ManageEmployeeActivity extends Activity implements View.OnClickList
     private ImageButton back;
     private boolean userScrolled;
     private int swipedPosition = 0;
-
+    private SessionManager sm;
     float historicX = Float.NaN, historicY = Float.NaN;
     static final int DELTA = 50;
     final SwipeDetector swipeDetector = new SwipeDetector();
@@ -93,11 +95,12 @@ public class ManageEmployeeActivity extends Activity implements View.OnClickList
         this.mEmployeeList = new ArrayList<Member>();
         this.manageEmployee = (ListView) findViewById(R.id.employeeList);
         this.manageEmployee.setOnScrollListener(this);
-       //this.manageEmployee.setOnItemClickListener(this);
-       // this.manageEmployee.setOnTouchListener(swipeDetector);
+
+        this.sm = new SessionManager(ManageEmployeeActivity.this);
         this.add = (Button) findViewById(R.id.add);
         this.add.setOnClickListener(this);
-
+        this.removeSelf = (Button)findViewById(R.id.removeSelf);
+        this.removeSelf.setOnClickListener(this);
 
         this.adapter = new EmployeeListAdapter(this,mTouchListener);
 
@@ -124,10 +127,20 @@ public class ManageEmployeeActivity extends Activity implements View.OnClickList
         if (v == add) {
             if (cd.isConnectingToInternet() && employeeIdEditText.getText().length()>0)
                 new AddEmployee(this, Integer.valueOf(employeeIdEditText.getText().toString())).execute();
+            else
+                Toast.makeText(ManageEmployeeActivity.this, "No internet connection", Toast.LENGTH_LONG).show();
 
         } else if (v == back) {
             finish();
 
+
+        }
+        else if(v == removeSelf)
+        {
+            if (cd.isConnectingToInternet())
+                new DeleteMerchant(this).execute();
+            else
+                Toast.makeText(ManageEmployeeActivity.this, "No internet connection", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -561,13 +574,89 @@ public class ManageEmployeeActivity extends Activity implements View.OnClickList
 
             } else {
                 employeeIdEditText.setText("");
-                Toast.makeText(ManageEmployeeActivity.this, "Something went wrong,check again", Toast.LENGTH_LONG).show();
+                Toast.makeText(ManageEmployeeActivity.this, "Something went wrong,try again later", Toast.LENGTH_LONG).show();
 
             }
 
         }
 
     }
+
+
+    public class DeleteMerchant extends AsyncTask<String, String, Boolean> {
+
+        ProgressDialog dialog;
+        boolean result;
+        Context mycontext;
+        int member_id;
+
+
+        public DeleteMerchant(Context c) {
+            this.mycontext = c;
+
+
+        }
+
+        @Override
+        public void onPreExecute() {
+            // Toast.makeText(getActivity(),"Progress",Toast.LENGTH_LONG).show();
+
+            dialog = new ProgressDialog(mycontext);
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setMessage("Deleting...");
+            dialog.setCancelable(false);
+            dialog.show();
+
+            super.onPreExecute();
+
+        }
+
+        @Override
+        public Boolean doInBackground(String... parms) {
+            // result=false;
+
+            BusinessManagerService bm = new BusinessManagerService();
+
+            result = bm.deleteSelf();
+
+
+
+            return result;
+        }
+
+        @Override
+        public void onPostExecute(Boolean result) {
+
+            dialog.dismiss();
+
+            if (result == true) {
+
+                onMerchantDelete();
+
+
+
+            } else {
+
+                Toast.makeText(ManageEmployeeActivity.this, "Something went wrong,try again later", Toast.LENGTH_LONG).show();
+
+            }
+
+        }
+
+    }
+
+
+    private void onMerchantDelete()
+    {
+        Toast.makeText(ManageEmployeeActivity.this, "Deleted", Toast.LENGTH_LONG).show();
+        this.sm.logoutUser();
+        Intent intent = new Intent(ManageEmployeeActivity.this,LoginActivity.class);
+        startActivity(intent);
+        finish();
+
+
+    }
+
 
     private void onEmployeeDelete() {
 

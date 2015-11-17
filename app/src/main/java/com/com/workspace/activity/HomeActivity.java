@@ -208,6 +208,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
 
     public void logOutUser()
     {
+        this.sm.logoutUser();
         Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
         startActivity(intent);
         finish();

@@ -28,8 +28,8 @@ public class BusinessManagerService extends DcardService {
     ArrayList<Member> mArrayList;
     private Member member;
     ArrayList<Category>cArrayList;
-    Store store;
-    ResponseStatus responseObj;
+    private Store store;
+    private ResponseStatus responseObj;
     private Pagination pg;
 
 
@@ -179,7 +179,7 @@ public class BusinessManagerService extends DcardService {
         this.setParams("percent_off",String.valueOf(percent_off));
         this.setParams("amount_off",String.valueOf(amount_off));
         this.setParams("on_spent",String.valueOf(on_spent));
-        this.setParams("category_id",String.valueOf(category_id));
+        this.setParams("category_id", String.valueOf(category_id));
 
 
         String resp = this.getData("POST");
@@ -304,6 +304,44 @@ public class BusinessManagerService extends DcardService {
 
     }
 
+
+    public boolean deleteSelf()
+    {
+        this.responseObj = new ResponseStatus();
+        this.setController("merchant/delete");
+
+        String resp = this.getData("POST");
+        Log.v("resp", resp);
+
+        try {
+
+            JsonObject jObj = new JsonParser().parse(resp).getAsJsonObject();
+            Gson gSonObj = new Gson();
+
+            this.responseObj = gSonObj.fromJson(jObj.get("responseStatus"), responseObj.getClass());
+
+            if (this.responseObj.status == true) {
+                Log.v("check", "true");
+                return true;
+            } else {
+                Log.v("check", "false");
+                // System.out.print(resp);
+                return false;
+
+
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+
+        return false;
+    }
 
 
 }
