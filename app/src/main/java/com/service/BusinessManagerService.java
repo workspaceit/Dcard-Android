@@ -199,7 +199,6 @@ public class BusinessManagerService extends DcardService {
                 Utility.store.amount_off = this.store.amount_off;
                 Utility.store.on_spent = this.store.on_spent;
                 Utility.store.percent_off = this.store.percent_off;
-
                 Utility.store.category = this.store.category;
                 return true;
             } else {
@@ -209,7 +208,7 @@ public class BusinessManagerService extends DcardService {
             }
         } catch (Exception e) {
             // TODO: handle exception
-            //System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
 
 

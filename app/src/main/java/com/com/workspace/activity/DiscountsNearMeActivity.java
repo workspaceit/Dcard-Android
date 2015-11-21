@@ -139,13 +139,13 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
 
         if (location != null) {
             System.out.println("Provider " + provider + " has been selected.");
-            // onLocationChanged(location);
+            onLocationChanged(location);
 
-            search.location = "new york";
-            search.lat = 40.7141667;
-            search.lon = -74.0063889;
+//            search.location = "new york";
+//            search.lat = 40.7141667;
+//            search.lon = -74.0063889;
         } else {
-            System.out.println("location not found Lmao!!");
+            System.out.println("location not found!!");
             search.location = "";
             search.lat = 0.0;
             search.lon = 0.0;
@@ -295,14 +295,12 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
                 builder.append(" ");
             }
 
-            String fnialAddress = builder.toString(); //This is the complete address.
-            System.out.println(fnialAddress);
-            search.location = fnialAddress;
+            String finalAddress = builder.toString(); //This is the complete address.
+            System.out.println(finalAddress);
+            search.location = finalAddress;
             search.lat = lat;
             search.lon = lng;
-//            search.location = "new york";
-//            search.lat = 40.7141667;
-//            search.lon = -74.0063889;
+
 
         } catch (IOException e) {
         } catch (NullPointerException e) {
@@ -374,6 +372,7 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
             } else if (searchState == 1) {
                 searchState = 0;
                 distanceState = 0;
+                confirm.setVisibility(View.GONE);
                 storeListView.setVisibility(View.VISIBLE);
                 categoryListView.setVisibility(View.GONE);
                 distanceListView.setVisibility(View.GONE);
@@ -414,14 +413,16 @@ public class DiscountsNearMeActivity extends Activity implements View.OnClickLis
             if(localStoreState == 0) {
 
                 search.local_store = 1;
-                enrolled.setText("Show only Dcard Enrolled business");
+                localStoreState = 1;
+                enrolled.setText("Show All Business");
                 callSearch();
 
             }
             else if(localStoreState == 1)
             {
                 search.local_store = 0;
-                enrolled.setText("Show All Business");
+                localStoreState = 0;
+                enrolled.setText("Show only Dcard Enrolled Business");
                 callSearch();
             }
 

@@ -78,6 +78,9 @@ public class BusinessManagerActivity extends Activity implements View.OnClickLis
         this.categorySpinner = (Spinner)findViewById(R.id.categorySpinner);
         this.categorySpinner.setOnItemSelectedListener(this);
 
+        this.categorySpinner.setVisibility(View.VISIBLE);
+        this.category.setVisibility(View.GONE);
+
         this.layout = (LinearLayout)findViewById(R.id.layout2);
         this.cd = new ConnectionDetector(this);
 
@@ -213,7 +216,12 @@ public class BusinessManagerActivity extends Activity implements View.OnClickLis
         }
         else if(position==0)
         {
-            this.category_id = -1;
+            if(this.cArrayList.get(0).name == "Select Category")
+            {
+                this.category_id = -1;
+            }
+            else
+            this.category_id = Utility.store.category[0].id;
 
         }
     }
@@ -227,7 +235,13 @@ public class BusinessManagerActivity extends Activity implements View.OnClickLis
 
         Toast.makeText(this,"Saved successfully!!",Toast.LENGTH_SHORT).show();
         try {
+            if(Utility.store.category.length>0)
             this.category.setText("Category: " + Utility.store.category[0].name);
+            else
+            {
+                this.category.setText("Category: None");
+
+            }
             this.spend.setText(String.valueOf(Utility.store.amount_off));
             this.get.setText(String.valueOf(Utility.store.on_spent));
             this.discount.setText(String.valueOf(Utility.store.percent_off));
@@ -307,12 +321,20 @@ public class BusinessManagerActivity extends Activity implements View.OnClickLis
 
 
         Category c= new Category();
-        c.id=0;
-        c.name = "Click to select";
-        cArrayList.add(c);
-        Collections.reverse(cArrayList);
-        this.categorySpinner.setAdapter(new CategorySpinnerAdapter(this,cArrayList));
 
+        if(Utility.store.category.length>0) {
+            c.name = Utility.store.category[0].name;
+            c.id= Utility.store.category[0].id;
+        }
+        else
+        {
+            c.name = "Select Category";
+            c.id=0;
+
+        }
+        cArrayList.add(c);
+        //Collections.reverse(cArrayList);
+        this.categorySpinner.setAdapter(new CategorySpinnerAdapter(this, cArrayList));
 
     }
 

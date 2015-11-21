@@ -177,7 +177,7 @@ public class PreferencesActivity extends Activity implements View.OnClickListene
             }
             else
             {
-                search_preference = "GPS";
+                search_preference = "zipsearch";
 
 
             }
