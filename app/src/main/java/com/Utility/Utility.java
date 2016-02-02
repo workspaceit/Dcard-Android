@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 public class Utility {
 
-	public static String BASE_URL = "http://27.147.149.178:9070/dCard/public/";
+	public static String BASE_URL = "http://27.147.149.178:9030/dcard/public/index.php/";
     public static LoggedInMember member = new LoggedInMember();
     public static Store store = new Store();
     public static Pagination pg = new Pagination();
